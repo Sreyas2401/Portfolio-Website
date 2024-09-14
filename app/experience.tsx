@@ -18,12 +18,12 @@ const points: Record<string, string[]>
         'Automated room extraction from floor plans using OpenCV and applied 2D Signed Distance Function model, enabling accurate 3D reconstruction',
         'Developed and applied Blender scripts to convert 2D floor plans into accurate 3D models.'
     ],
-    'UMass Amherst - Facial Reconstruction project': [
+    'UMass Amherst - Facial Reconstruction Project': [
         'Employed Bayesian Neural Networks to quantify uncertainty in facial landmark detection, incorporating dropout as Bayesian approximation, and optimized loss functions',
         'Collaborated with PhD candidates to integrate state-of-the-art 3D Morphable Face Models, resulting in 20% increase in reconstruction accuracy on benchmark datasets.',
         'Performed data processing and augmentation using Python and Pandas to improve model generalization.'
     ],
-    'UMass Amherst - Enhancing MRI Scans with SRGAN Model project': [
+    'UMass Amherst - Enhancing MRI Scans Project': [
         'Processed MRI dataset, performing image standardization and augmentation via OpenCV.',
         'Fine-tuned SRGAN Model with k-fold cross validation in PyTorch for resolution enhancement.',
         'Integrated edge detection layer to SRGAN architecture, improving image quality proven by decrease in FID score',
@@ -32,7 +32,7 @@ const points: Record<string, string[]>
 };
 
 const Grid: React.FC<GridProps> = ({ company_name, role, dates }) => {
-    const responsibilities = points[company_name] || ['No responsibilities added yet.'];
+    const responsibilities = points[company_name];
 
     return (
         <div className="experience-container">
@@ -69,12 +69,12 @@ const ExperienceTree = () => {
             dates="September 2023 - May 2024" 
         />
         <Grid 
-            company_name="UMass Amherst - Facial Reconstruction project" 
+            company_name="UMass Amherst - Facial Reconstruction Project" 
             role="Undergraduate Researcher" 
             dates="August - November 2023" 
         />
         <Grid 
-            company_name="UMass Amherst - Enhancing MRI Scans with SRGAN Model project" 
+            company_name="UMass Amherst - Enhancing MRI Scans Project" 
             role="Undergraduate Researcher" 
             dates="June - August 2023" 
         />
