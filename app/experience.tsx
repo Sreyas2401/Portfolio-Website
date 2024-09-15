@@ -1,10 +1,6 @@
-interface GridProps {
-    company_name: string;
-    role: string;
-    dates: string;
-}
+import Grid from "./grid";
 
-const points: Record<string, string[]>
+const dict: Record<string, string[]>
 = {
     'AOI': [
         'Implemented Protobuf-based APIs in C++ for ESP32 microchip for communication with Line Extenders and High Gain Dual',
@@ -26,31 +22,9 @@ const points: Record<string, string[]>
     'UMass Amherst - Enhancing MRI Scans Project': [
         'Processed MRI dataset, performing image standardization and augmentation via OpenCV.',
         'Fine-tuned SRGAN Model with k-fold cross validation in PyTorch for resolution enhancement.',
-        'Integrated edge detection layer to SRGAN architecture, improving image quality proven by decrease in FID score',
+        'Integrated edge detection layer to SRGAN architecture, improving image quality proven by decrease in FID score.',
         'Presented research findings at University Computer Science Fair.'
     ]
-};
-
-const Grid: React.FC<GridProps> = ({ company_name, role, dates }) => {
-    const responsibilities = points[company_name];
-
-    return (
-        <div className="experience-container">
-            <div className="date-box">
-                {dates}
-            </div>
-            <div className="details">
-                <details>
-                <summary>{role} at {company_name}</summary>
-                <ul className="incremental">
-                    {responsibilities.map((item: string, index: number) => (
-                        <li key={index}>{item}</li>
-                    ))}
-                </ul>
-            </details>
-        </div>
-    </div>
-    );
 };
 
 
@@ -58,25 +32,30 @@ const ExperienceTree = () => {
     return (
     <div>
         <h2 id="basic">Experience</h2>
+
         <Grid 
             company_name="AOI" 
             role="Software Engineer Intern" 
-            dates="June - August 2024" 
+            dates="June - Aug 2024" 
+            points={dict['AOI']}
         />
         <Grid 
             company_name="UMass Amherst - Developable_Surfaces Project" 
             role="Undergraduate Researcher" 
-            dates="September 2023 - May 2024" 
+            dates="Sept 2023 - May 2024" 
+            points={dict['UMass Amherst - Developable_Surfaces Project']}
         />
         <Grid 
             company_name="UMass Amherst - Facial Reconstruction Project" 
             role="Undergraduate Researcher" 
-            dates="August - November 2023" 
+            dates="August - Nov 2023" 
+            points={dict["UMass Amherst - Facial Reconstruction Project"]}
         />
         <Grid 
             company_name="UMass Amherst - Enhancing MRI Scans Project" 
             role="Undergraduate Researcher" 
-            dates="June - August 2023" 
+            dates="June - Aug 2023" 
+            points={dict["UMass Amherst - Enhancing MRI Scans Project"]}
         />
     </div>
     );
